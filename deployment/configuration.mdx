@@ -88,6 +88,35 @@ Here's the full configuration reference
     // connection is kept in the pool before being killed.
     // The environment variable equivalent is CONVOY_DB_CONN_MAX_LIFETIME
     "conn_max_lifetime": 10
+
+    // [optional]
+    // Read replicas configuration. These are additional database
+    // instances used for read operations, improving scalability and
+    // performance. Each replica can also use either a DSN or
+    // individual connection components.
+    // The environment variable equivalent is CONVOY_DB_READ_REPLICAS
+    "read_replicas": [
+    {
+        // Read replica DSN. If provided, it takes precedence over
+        // individual components like host, username, etc.
+        "dsn": "postgres://convoy:convoy@localhost:5436/convoy",
+
+        // Individual connection components. Ignored if DSN is specified.
+        "host": "localhost",
+        "username": "convoy",
+        "password": "convoy",
+        "database": "convoy",
+        "port": 5436
+    },
+    {
+        // Example of a read replica using individual components instead of a DSN.
+        "host": "localhost",
+        "username": "convoy",
+        "password": "convoy",
+        "database": "convoy",
+        "port": 5437
+    }
+    ],
   },
 
   [required]
