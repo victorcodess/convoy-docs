@@ -110,7 +110,8 @@
         "product-manual/rate-limits",
         "product-manual/filters",
         "product-manual/functions",
-        "product-manual/metrics"
+        "product-manual/metrics",
+        "product-manual/read-replicas"
       ]
     },
     {
